@@ -48,8 +48,8 @@ public class EnemyAttackState : EnemyState
 
             Vector2 dir = (_playerTransform.position - enemy.transform.position).normalized;
 
-            Rigidbody2D bullet = GameObject.Instantiate(enemy.BulletPrefab, enemy.transform.position, Quaternion.identity);
-            bullet.velocity = dir * _bulletSpeed;
+            GameObject bullet = GameObject.Instantiate(enemy.BulletPrefab, enemy.transform.position, Quaternion.identity);
+            bullet.GetComponent<Rigidbody2D>().velocity = dir * _bulletSpeed;
 
             GameObject.Destroy(bullet.gameObject, _bulletDuration);
         }
